@@ -1,0 +1,120 @@
+---
+title: "Agents"
+description: ""
+---
+
+## Initiating a Call with an Agent
+
+This endpoint allows you to initiate a phone call from an agent to a contact.
+
+### Endpoint
+
+```http
+POST /api/agents/call
+```
+
+### Authentication
+
+All requests require the following headers:
+
+- x-api-key : Your API key
+- x-organization-id : Your organization ID
+
+### Request Format
+
+#### Headers:
+
+```http
+Content-Type: application/json
+x-api-key: your-api-key
+x-organization-id: your-organization-id
+```
+
+#### Body:
+
+```json
+{
+  "agentId": "uuid-of-the-agent",
+  "contactId": "uuid-of-the-contact",
+  "notes": "Optional notes for context in this call"
+}
+```
+
+#### Required Parameters:
+
+- agentId : The UUID of the agent that will make the call
+- contactId : The UUID of the contact to call
+
+#### Optional Parameters:
+
+- notes : Additional context for the call that will be provided to the agent
+
+### Example Request
+
+```bash
+curl -X POST https://api.agentvoice.com/api/agents/call \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: your-api-key" \
+  -H "x-organization-id: your-organization-id" \
+  -d '{
+    "agentId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "contactId": "7de309f1-926b-4cf9-8c20-55a540117308",
+    "notes": "Following up about their recent subscription"
+  }'
+```
+
+### Example Response
+
+```json
+{
+  "message": "Call initiated successfully",
+  "callId": "b7f2d8e1-6c3a-4d5b-9e8f-1a2b3c4d5e6f",
+  "agentName": "Sales Assistant",
+  "contactName": "John Doe",
+  "phoneNumber": "+15551234567"
+}
+```
+
+### Important Notes
+
+1. The contact must have a valid phone number in their profile.
+2. The agent must be configured with proper voice settings and instructions.
+3. The call is initiated immediately upon successful request processing.
+4. The callId can be used to reference this call in your system later.
+5. The externalId is the ID used by the voice AI provider.
+
+### Error Responses
+
+The API may return the following error responses:
+
+#### 400 Bad Request:
+
+```json
+{
+  "error": "agentId and contactId are required"
+}
+```
+
+#### 404 Not Found:
+
+```json
+{
+  "error": "Contact not found"
+}
+```
+
+#### 400 Bad Request:
+
+```json
+{
+  "error": "Contact does not have a phone number"
+}
+```
+
+#### 500 Internal Server Error:
+
+```json
+{
+  "error": "Failed to initiate call"
+}
+```

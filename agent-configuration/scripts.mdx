@@ -1,0 +1,82 @@
+---
+title: "Scripts"
+description: "Learn how to design and configure conversation flows for inbound and outbound AI agent calls in AgentVoice."
+---
+
+## Introduction to Scripts
+Scripts in AgentVoice help your AI agents follow a structured conversation flow when interacting with customers. Scripts are designed to work with large language models, providing the right amount of guidance while still allowing for natural conversation.
+Scripts can be created for inbound calls (when customers call your agent), outbound calls (when your agent calls customers), or both scenarios.
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/-2h4eJ3sqjs"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## Creating a New Script
+To create a new script in AgentVoice:
+1. Click on the **Scripts** tab on the left side of your dashboard
+2. Click on **Create New Script** if you don't have any scripts yet
+### Script Type Selection
+First, you'll need to select what kind of script you want to create:
+- Inbound : For scripts your agent will follow when receiving calls
+- Outbound : For scripts your agent will follow when making calls
+- Both : For generic scripts that work in all communication directions
+### Naming Your Script
+Give your script a descriptive name that will help you recognize it easily, especially if you manage multiple scripts for different purposes.
+## Script Components
+The Script Builder interface allows you to create structured conversation flows with these components:
+### Greeting
+The greeting is how your agent introduces itself at the beginning of a conversation. This will override any default greeting set in your agent's settings.
+Example: "Hello, I'm your AI assistant from [Your Company]. How can I help you today?"
+### Wait For Response
+This component tells your agent to pause and wait for the customer to respond before continuing. This is crucial for creating natural turn-based conversations where the AI doesn't dominate the interaction.
+The "Wait For Response" component helps prevent your agent from saying too much at once or continuing without customer input.
+### Context
+The context component provides guidance to your agent about how to handle specific parts of the conversation. This helps the agent understand what information to collect or what to focus on.
+Example context: "Focus on understanding customer requirements and preferences. Collect location, price range, and must-have features."
+### Say Blocks
+Say blocks contain the specific text your agent should say at different points in the conversation. These help guide the interaction while allowing the agent to adapt to unexpected responses.
+### Conditional Blocks
+Conditional blocks allow you to create different paths based on what the customer might say. For example:
+- If the customer mentions [specific scenario], then respond with [specific response]
+- If the customer doesn't mention [specific scenario], then respond with [alternative response]
+This helps your agent handle various conversation branches effectively.
+### Closing Block
+The closing block defines what your agent should say when ending the conversation, ensuring a professional conclusion to the interaction.
+## Using Templates vs. Manual Creation
+AgentVoice offers two approaches to creating scripts:
+### Using Templates
+You can choose from pre-built templates for different industries and use cases:
+- AI real estate assistant
+- Technical support
+- Onboarding guide
+- Learning assistant
+- Healthcare assistant
+- And many more
+These templates give you a starting point that you can customize for your specific needs.
+### Adding Components Manually
+If you prefer to build from scratch:
+1. Click **Add Components Manually**
+2. The system will automatically add a greeting block to start
+3. Add additional components (wait for response, say, context, conditional blocks)
+4. Always add a closing block at the end
+## Attaching Scripts to Agents
+To connect your script to an agent:
+1. Go to the **Agents** tab
+2. Select the agent you want to modify
+3. Go to the **Agent Setup** tab
+4. Scroll down to the **Scripts** section
+5. Click **Select a Script** and choose your script
+6. Click the **Save** button to apply the changes
+Your agent will now follow this script during conversations, though remember that AI agents can still adapt to unexpected scenarios when necessary.
+## Best Practices for Script Creation
+- Balance Control : Give your agent enough guidance without making the conversation feel robotic
+- Turn-Based Design : Remember conversations are turn-based (AI speaks, human responds)
+- Consider Unexpected Responses : Your script should be flexible enough to handle unexpected customer inputs
+- Use Context Blocks to give your agent background information before requesting a response
+- Test and Refine : Scripts often require adjustment after real-world testing
+For questions or assistance with script creation, contact support@agentvoice.com.

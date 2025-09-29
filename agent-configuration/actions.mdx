@@ -1,0 +1,71 @@
+---
+title: "Actions"
+description: ""
+---
+
+## Introduction to Actions
+Actions in AgentVoice allow your AI agents to interact with external systems and databases, making them more powerful and capable. Actions are customizable tools that enable your agents to perform tasks like retrieving information, booking appointments, or sending data to your business systems.
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/VULYRTaaIoU"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## Creating a New Action
+To create a new action in AgentVoice:
+1. Navigate to the **Actions** tab on the left side of your dashboard
+2. Click on **Create Action** button or **New Action** in the toolbar
+### Basic Information
+The first step defines how the AI identifies and uses this action:
+- Action Name : Create a clear, descriptive name using lowercase letters and underscores (no spaces). This is what your agent will use to identify the tool.
+- Description : Provide a detailed explanation of what the action does and when it should be used. Think of this as instructions for your agent on how and when to use this tool.
+For example, an action named "fetch_product_price" might have a description like: "This tool will fetch the price for a given product based on the product number that the user provides. This tool will not work if the product number is not provided by the user."
+### Advanced Settings
+Under optional advanced settings:
+- Enable Strict Data Mode : When enabled, the AI will only use this action when all required parameters are available. This prevents the action from being used with incomplete information.
+## Server Configuration
+Actions work by connecting to external systems through webhooks or APIs:
+- Webhook URL : The endpoint where the action will send data. This could be a Make.com (Integromat) scenario, Zapier workflow, HubSpot, GoHighLevel, or any system that accepts webhook connections.
+### Authentication (Optional)
+If your external system requires authentication:
+- API Key : Add your key here if your external system requires one
+- Custom Headers : Add any additional headers your external system might require
+## Parameters
+Parameters define what information your action needs to function:
+### Adding Parameters
+For each piece of information your action needs:
+- Parameter Name : A descriptive name for the information (e.g., "product_number")
+- Data Type : The type of data expected: Text: For strings, alphanumeric values, or mixed content
+- Number: For numeric values only
+- True/False: For boolean values
+**Description**: Explain what this parameter is and how it should be formatted. This helps your agent understand what to ask for and how to validate responses.
+**Required**: Specify if this parameter must be provided for the action to work
+### Parameter Validation (Optional)
+For advanced users, you can add validation patterns to ensure the data follows a specific format before being sent to your external system.
+## Messages
+Configure what your agent says during different stages of using the action:
+- Start Message : What the agent says when it begins using the action (optional)
+- Complete Message : What the agent says when the action completes successfully (optional)
+- Failed Message : What the agent says if the action fails (optional)
+- Delayed Message : What the agent says if the action is taking longer than expected (optional)
+In most cases, leaving these fields blank allows the AI to generate appropriate responses based on the context and the data received from your external system.
+## Review and Create
+The final step shows a summary of your action configuration. Review the information and click **Create Action** to save it.
+## Attaching Actions to Agents
+To make your action available to an agent:
+1. Go to the **Agents** tab
+2. Select the agent you want to modify
+3. Navigate to the **Tools** section
+4. Go to **Custom Tools**
+5. Add your action from the list
+6. Click **Save**
+## Best Practices for Creating Actions
+- Keep it Simple : Don't overcomplicate your actions - focus on clear, specific functionality
+- Clear Descriptions : Provide detailed descriptions that help your agent understand when and how to use the action
+- Validate Inputs : Use the appropriate data types and validation to ensure your agent collects the right information
+- Test Thoroughly : After creating an action, test it in different scenarios to ensure it works as expected
+With actions, your agents can connect to virtually any system or API, allowing them to access information and perform tasks that make them truly powerful assistants for your business.

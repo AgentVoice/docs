@@ -1,0 +1,83 @@
+---
+title: "Contacts"
+description: "Learn how the Contacts section in AgentVoice creates, updates, and organizes contact information automatically from AI agent calls."
+---
+
+## Introduction to Contacts
+The Contacts page in AgentVoice allows you to store, manage, and organize all the people your agents interact with. This centralized contact database helps you keep track of customer information, conversation history, and scheduled tasks.
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/-fOmCvRRVEU"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## Accessing the Contacts Section
+To manage your contacts:
+1. Navigate to the left side of the screen
+2. Click on the **Contacts** tab
+## Contacts Interface Overview
+The Contacts page provides several tools to help you manage your customer database:
+- Search Bar : Quickly find specific contacts by name, email, or phone number
+- Filters : Narrow down your contact list based on specific criteria
+- Display Options : Choose how many contacts to display per page (25, 50, or 100)
+- Import Button : Import multiple contacts at once via CSV file
+- Add Contact Button : Manually add individual contacts
+## Importing Contacts
+To import multiple contacts at once:
+### Step 1: Prepare Your CSV File
+Your CSV file must include these fields:
+- Required Fields : Phone Number (column can be named: phone, phone_number, tel, or mobile)
+- First Name (column can be named: first_name, firstname, fname, or given_name)
+**Optional Fields**:
+- Last Name (column can be named: last_name, lastname, lname, or surname)
+- Email (column can be named: email, email_address, or mail)
+- Company (column can be named: company, company_name, organization, or org)
+### Step 2: Upload Your CSV File
+1. Click the **Import** button
+2. Upload your CSV file by clicking the upload area or dragging and dropping your file
+### Step 3: Review and Edit Imported Contacts
+Before finalizing the import:
+- Review the list of contacts to ensure the information is correct
+- Edit individual contacts by clicking the edit icon if needed
+- Delete any contacts you don't want to import by clicking the delete icon
+- Use the checkbox to select multiple contacts for bulk deletion if necessary
+### Step 4: Complete the Import
+Click the **Import [X] Contacts** button to add the contacts to your database.
+## Managing Individual Contacts
+Once you have contacts in your system, you can manage them in several ways:
+### Viewing Contact Details
+Click on any contact's name to open their detailed profile, which includes:
+- Contact Information : Name, phone, email, and company
+- Notes : Comments added by you, your team, or your AI agents
+- Tasks : Scheduled activities related to this contact
+- Call History : Records of past calls with this contact
+### Adding Notes
+Notes help you and your team keep track of important information about your contacts:
+- Click Add Note in the contact profile
+- Enter your note and save it
+- Notes can be added by human team members or automatically by AI agents
+### Scheduling Tasks
+You can schedule tasks directly from a contact's profile:
+- Click Schedule Task in the contact profile
+- Select the task type (call, text, email, API)
+- Choose the purpose, date, time, and assign it to an agent
+- Add any specific instructions for the task
+### Viewing Call History
+Access all past conversations with a contact:
+- Navigate to the Call History tab in the contact profile
+- Review call details, listen to recordings, and read transcripts
+### Editing Contact Information
+To update a contact's details:
+- Click on the contact's name to open their profile
+- Click Edit to modify their information
+- Make your changes and save
+## Using Contacts with API
+If you're using the AgentVoice API to automate interactions:
+- Each contact has a unique Contact ID displayed in their profile
+- You'll need this Contact ID when making API calls that reference specific contacts
+- This allows your systems to trigger actions for specific contacts through the API
+For questions or assistance with managing contacts, email support@agentvoice.com.
