@@ -1,0 +1,7 @@
+#navbar .nav-logo {
+    max-width: 145px;
+}
+
+#topbar-cta-button svg {
+    display: none;
+}
