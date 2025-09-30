@@ -7,7 +7,10 @@
     "light": "#0f6fff",
     "dark": "#0f6fff"
   },
-  "favicon": "/favicon.svg",
+  "favicon": {
+    "light": "/favicon.png",
+    "dark": "/favicon-dark.png"
+  },
   "navigation": {
     "groups": [
       {
