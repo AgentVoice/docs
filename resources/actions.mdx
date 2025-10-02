@@ -1,0 +1,62 @@
+---
+title: Actions
+description: Actions in AgentVoice allow your AI agents to interact with external systems and databases, making them more powerful and capable. Actions are customizable tools that enable your agents to perform tasks like retrieving information, booking appointments, or sending data to your business systems.
+---
+
+## Creating a New Action
+
+Navigate to the **Actions** tab on the left side of your dashboard and click on **Create Action** or **New Action** in the toolbar.
+
+**Basic Information**:
+
+* **Action Name**: Create a clear, descriptive name using lowercase letters and underscores (no spaces). This is what your agent will use to identify the tool.  
+* **Description**: Provide a detailed explanation of what the action does and when it should be used. Think of this as instructions for your agent.
+
+Example: An action named "fetch\_product\_price" might have a description like: "This tool will fetch the price for a given product based on the product number that the user provides. This tool will not work if the product number is not provided by the user."
+
+**Advanced Settings**:
+
+* **Enable Strict Data Mode**: When enabled, the AI will only use this action when all required parameters are available.
+
+## Server Configuration
+
+Actions work by connecting to external systems through webhooks or APIs.
+
+* **Webhook URL**: The endpoint where the action will send data. This could be a Make.com (Integromat) scenario, Zapier workflow, HubSpot, GoHighLevel, or any system that accepts webhook connections.
+
+**Authentication (Optional)**:
+
+* **API Key**: Add your key here if your external system requires one  
+* **Custom Headers**: Add any additional headers your external system might require
+
+## Parameters
+
+Parameters define what information your action needs to function.
+
+For each piece of information your action needs:
+
+* **Parameter Name**: A descriptive name for the information (e.g., "product\_number")  
+* **Data Type**: The type of data expected (Text for strings and alphanumeric values, Number for numeric values only, True/False for boolean values)  
+* **Description**: Explain what this parameter is and how it should be formatted  
+* **Required**: Specify if this parameter must be provided for the action to work
+
+For advanced users, you can add validation patterns to ensure the data follows a specific format before being sent to your external system.
+
+## Messages
+
+Configure what your agent says during different stages of using the action:
+
+* **Start Message**: What the agent says when it begins using the action (optional)  
+* **Complete Message**: What the agent says when the action completes successfully (optional)  
+* **Failed Message**: What the agent says if the action fails (optional)  
+* **Delayed Message**: What the agent says if the action is taking longer than expected (optional)
+
+In most cases, leaving these fields blank allows the AI to generate appropriate responses based on the context and the data received from your external system.
+
+Review the summary of your action configuration and click **Create Action** to save it.
+
+## Attaching Actions to Agents
+
+Go to the **Agents** tab, select the agent you want to modify, navigate to the **Tools** section, go to **Custom Tools**, add your action from the list, and click **Save**.
+
+Keep actions simple and focused on clear, specific functionality. Provide detailed descriptions that help your agent understand when and how to use the action. Use appropriate data types and validation to ensure your agent collects the right information. Test actions thoroughly after creating them in different scenarios.

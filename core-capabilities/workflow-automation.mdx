@@ -1,0 +1,33 @@
+---
+title: Workflow Automation
+---
+
+## Pre-Call Actions
+
+Pre-call actions transform cold calls into warm conversations by gathering context before your agent even answers. When a call comes in, the system has a few seconds before the agent answers. During this window, pre-call actions execute in sequence, gathering information that shapes how the agent will handle the conversation.
+
+Common pre-call actions include spam filtering (check caller number against known databases to reject robocalls automatically), CRM lookup (pull caller information and history), recent interaction checking (review previous calls to avoid asking for information already provided), and business hours verification (route to voicemail or after-hours message if needed).
+
+Each action can include reasoning blocks that prevent unnecessary API calls and reduce costs. For example, skip CRM lookup if contact data was fetched recently and use cached data instead.
+
+## In-Call Actions
+
+Your agent completes real work during conversations without putting callers on hold or transferring them around. Actions trigger naturally based on conversation flow and customer intent, creating seamless experiences where the agent handles complete workflows.
+
+The agent monitors the conversation and recognizes when it needs to perform an action. Rather than rigid menu navigation, actions trigger based on natural language understanding of what the caller needs.
+
+Common in-call actions include appointment scheduling (check real-time calendar availability and book while discussing details), support ticket creation (capture issue details through natural conversation and create tickets automatically), account lookup (verify caller identity securely and pull information in real-time), and information retrieval (search knowledge base during conversation and provide accurate, current information).
+
+## Post-Call Actions
+
+Automate the follow-through work that happens after calls end, ensuring nothing falls through the cracks. Immediately after a call ends, the system analyzes the conversation and triggers appropriate actions based on what happened. These actions run reliably even if calls disconnect unexpectedly.
+
+Common post-call actions include CRM updates (log call outcome, record conversation summary, update contact fields with collected information), communication follow-ups (send confirmation emails with discussed details, deliver SMS reminders for appointments), task scheduling (create follow-up tasks for your team, schedule callback attempts), and external system integration (trigger webhooks to external systems, update ticketing platforms).
+
+## Reasoning Blocks
+
+Reasoning blocks add intelligence to your workflows by evaluating conditions before executing expensive operations. They help your agents make smart decisions about when to use actions, how to handle edge cases, and what to do when information is missing or ambiguous.
+
+Reasoning blocks are conditional logic statements that run before actions. Without reasoning blocks, agents would make redundant API calls that cost money, process invalid data that creates errors, and execute actions when they shouldn't. With reasoning blocks, agents only make necessary API calls, validate before processing, make intelligent routing decisions, and handle edge cases gracefully.
+
+Common patterns include checking if data already exists before making API calls, validating inputs before processing, routing by complexity, and handling availability scenarios with appropriate fallbacks.

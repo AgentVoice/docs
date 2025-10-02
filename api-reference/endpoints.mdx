@@ -1,0 +1,151 @@
+---
+title: Endpoints
+---
+
+## Agents
+
+**Initiate a Call**
+
+```http
+POST /api/agents/call
+```
+
+Initiates a phone call from an agent to a contact.
+
+**Request Headers**:
+
+```http
+Content-Type: application/json
+x-api-key: your-api-key
+x-organization-id: your-organization-id
+```
+
+**Request Body**:
+
+```json
+{
+  "agentId": "uuid-of-the-agent",
+  "phoneNumber": "+1XXXXXXXXXX",
+  "notes": "Optional notes for context in this call"
+}
+```
+
+**Required Parameters**:
+
+* agentId: The UUID of the agent that will make the call  
+* phoneNumber: Phone number in the format +1XXXXXXXXXX
+
+**Optional Parameters**:
+
+* notes: Additional context for the call
+
+**Example Response**:
+
+```json
+{
+  "message": "Call initiated successfully",
+  "callId": "b7f2d8e1-6c3a-4d5b-9e8f-1a2b3c4d5e6f",
+  "agentName": "Sales Assistant",
+  "contactName": "John Doe",
+  "phoneNumber": "+15551234567"
+}
+```
+
+The contact must have a valid phone number in their profile. The call is initiated immediately upon successful request processing.
+
+## Contacts
+
+**List All Contacts**
+
+```http
+GET /api/contacts
+```
+
+Retrieves all contacts for your organization.
+
+**Get a Specific Contact**
+
+```http
+GET /api/contacts/:id
+```
+
+Retrieves a specific contact by ID.
+
+**Get a Contact by CRM ID**
+
+```http
+GET /api/contacts/crm/lookup
+```
+
+Retrieves a contact by CRM ID and source.
+
+**Query Parameters**:
+
+* crm\_id: The ID of the contact in the CRM system  
+* crm\_source: The source CRM system (e.g., "salesforce", "hubspot")
+
+**Create a Contact**
+
+```http
+POST /api/contacts
+```
+
+Creates a new contact. The contact will be associated with the authenticated user.
+
+**Request Body**:
+
+```json
+{
+  "first_name": "Jane",
+  "last_name": "Smith",
+  "email": "jane@example.com",
+  "phone": "+1987654321",
+  "company": "New Corp",
+  "crm_id": "CRM456",
+  "crm_source": "hubspot"
+}
+```
+
+first\_name is required unless crm\_id and crm\_source are provided. All other fields are optional.
+
+**Update a Contact**
+
+```http
+PATCH /api/contacts/:id
+```
+
+Updates specific fields of a contact. Only include the fields you want to update.
+
+**Delete a Contact**
+
+```http
+DELETE /api/contacts/:id
+```
+
+Permanently deletes a contact.
+
+**CRM Webhook**
+
+```http
+POST /api/webhook/crm
+```
+
+Receives contact data from external CRM systems and creates or updates contacts accordingly.
+
+**Request Body**:
+
+```json
+{
+  "source": "salesforce",
+  "data": {
+    "crm_id": "CRM123",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@example.com",
+    "phone": "+1234567890",
+    "company": "Example Corp"
+  }
+}
+```
+
+The webhook supports various field naming conventions from different CRM systems, including first\_name/firstName/name, last\_name/lastName, email/emailAddress, phone/phoneNumber, and company/companyName/organization.

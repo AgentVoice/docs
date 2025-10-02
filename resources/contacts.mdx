@@ -1,0 +1,40 @@
+---
+title: Contacts
+---
+
+## Accessing the Contacts Section
+
+Navigate to the left side of the screen and click on the **Contacts** tab.
+
+The Contacts page provides a search bar to quickly find specific contacts by name, email, or phone number, filters to narrow down your contact list, display options to choose how many contacts to display per page (25, 50, or 100), an Import button to import multiple contacts at once via CSV file, and an Add Contact button to manually add individual contacts.
+
+## Importing Contacts
+
+**Prepare Your CSV File**:
+
+Your CSV file must include these fields:
+
+* **Required**: Phone Number (column can be named: phone, phone\_number, tel, or mobile) and First Name (column can be named: first\_name, firstname, fname, or given\_name)  
+* **Optional**: Last Name (column can be named: last\_name, lastname, lname, or surname), Email (column can be named: email, email\_address, or mail), and Company (column can be named: company, company\_name, organization, or org)
+
+**Upload Your CSV File**: Click the **Import** button and upload your CSV file by clicking the upload area or dragging and dropping your file.
+
+**Review and Edit Imported Contacts**: Before finalizing the import, review the list of contacts to ensure the information is correct. Edit individual contacts by clicking the edit icon if needed. Delete any contacts you don't want to import by clicking the delete icon. Use the checkbox to select multiple contacts for bulk deletion if necessary.
+
+**Complete the Import**: Click the **Import \[X\] Contacts** button to add the contacts to your database.
+
+## Managing Individual Contacts
+
+**Viewing Contact Details**: Click on any contact's name to open their detailed profile, which includes contact information (name, phone, email, and company), notes (comments added by you, your team, or your AI agents), tasks (scheduled activities related to this contact), and call history (records of past calls with this contact).
+
+**Adding Notes**: Notes help you and your team keep track of important information about your contacts. Click Add Note in the contact profile, enter your note and save it. Notes can be added by human team members or automatically by AI agents.
+
+**Scheduling Tasks**: You can schedule tasks directly from a contact's profile. Click Schedule Task in the contact profile, select the task type (call, text, email, API), choose the purpose, date, time, and assign it to an agent, then add any specific instructions for the task.
+
+**Viewing Call History**: Access all past conversations with a contact. Navigate to the Call History tab in the contact profile and review call details, listen to recordings, and read transcripts.
+
+**Editing Contact Information**: Click on the contact's name to open their profile, click Edit to modify their information, make your changes and save.
+
+## Using Contacts with API
+
+If you're using the AgentVoice API to automate interactions, each contact has a unique Contact ID displayed in their profile. You'll need this Contact ID when making API calls that reference specific contacts. This allows your systems to trigger actions for specific contacts through the API.

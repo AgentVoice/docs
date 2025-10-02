@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "maple",
   "name": "AgentVoice",
   "colors": {
     "primary": "#0f6fff",
@@ -12,74 +12,109 @@
     "dark": "/favicon-dark.png"
   },
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "getting-started/create-an-agent"
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "index",
+              "getting-started/quick-start-guide",
+              "getting-started/platform-overview",
+              "getting-started/your-first-agent"
+            ]
+          },
+          {
+            "group": "Core Capabilities",
+            "pages": [
+              "core-capabilities/voice-experience",
+              "core-capabilities/workflow-automation",
+              "core-capabilities/campaigns",
+              "core-capabilities/agent-command-center",
+              "core-capabilities/multi-channel"
+            ]
+          },
+          {
+            "group": "System Features",
+            "pages": [
+              "system-features/memory-knowledge",
+              "system-features/appointment-setting",
+              "system-features/integrations",
+              "system-features/operations"
+            ]
+          },
+          {
+            "group": "Analytics & Admin",
+            "pages": [
+              "analytics-admin/real-time-monitoring",
+              "analytics-admin/performance-reports",
+              "analytics-admin/roi-tracking",
+              "analytics-admin/admin-controls",
+              "analytics-admin/security-compliance"
+            ]
+          },
+          {
+            "group": "Resources",
+            "pages": [
+              "resources/scripts",
+              "resources/actions",
+              "resources/tasks",
+              "resources/call-logs",
+              "resources/phone-numbers",
+              "resources/contacts",
+              "resources/templates-playbooks",
+              "resources/best-practices",
+              "resources/troubleshooting",
+              "resources/support-options"
+            ]
+          }
         ]
       },
       {
-        "group": "Agent Configuration", 
-        "pages": [
-          "agent-configuration/knowledge-base",
-          "agent-configuration/scripts",
-          "agent-configuration/actions"
-        ]
-      },
-      {
-        "group": "Scheduling",
-        "pages": [
-          "scheduling/calendar",
-          "scheduling/tasks"
-        ]
-      },
-      {
-        "group": "Call Features",
-        "pages": [
-          "call-features/contacts",
-          "call-features/call-logs",
-          "call-features/phone-numbers"
-        ]
-      },
-      {
-        "group": "API",
-        "pages": [
-          "api/quick-start",
-          "api/agents",
-          "api/contacts"
+        "tab": "API Reference",
+        "groups": [
+          {
+            "group": "API Reference",
+            "pages": [
+              "api-reference/quick-start",
+              "api-reference/authentication",
+              "api-reference/endpoints",
+              "api-reference/webhooks"
+            ]
+          }
         ]
       }
-    ]
-  },
-  "global": {
-    "anchors": [
-      {
-        "anchor": "Changelog",
-        "href": "https://www.agentvoice.com/changelog/",
-        "icon": "clock"
-      },
-      {
-        "anchor": "Roadmap",
-        "href": "https://www.agentvoice.com/roadmap/",
-        "icon": "list-check"
-      },
-      {
-        "anchor": "Feature Requests",
-        "href": "https://www.agentvoice.com/feature-requests/",
-        "icon": "lightbulb"
-      },
-      {
-        "anchor": "Support",
-        "href": "https://www.agentvoice.com/support/",
-        "icon": "question"
-      }
-    ]
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Changelog",
+          "href": "https://www.agentvoice.com/changelog/",
+          "icon": "clock"
+        },
+        {
+          "anchor": "Roadmap",
+          "href": "https://www.agentvoice.com/roadmap/",
+          "icon": "list-check"
+        },
+        {
+          "anchor": "Feature Requests",
+          "href": "https://www.agentvoice.com/feature-requests/",
+          "icon": "lightbulb"
+        },
+        {
+          "anchor": "Support",
+          "href": "https://www.agentvoice.com/support/",
+          "icon": "question"
+        }
+      ]
+    }
   },
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "dark": "/logo/dark.svg",
+    "href": "https://www.agentvoice.com"
   },
   "navbar": {
     "links": [
@@ -96,21 +131,22 @@
   },
   "contextual": {
     "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
   },
   "footer": {
     "socials": {
       "x": "https://twitter.com/agent_voice",
       "linkedin": "https://www.linkedin.com/company/agentvoice/",
-      "youtube": "https://www.youtube.com/@agentvoice"
+      "youtube": "https://www.youtube.com/@agentvoice",
+      "discord": "https://discord.gg/PSjdBe8rSB"
     }
   }
 }

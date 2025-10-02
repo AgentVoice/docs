@@ -1,0 +1,64 @@
+---
+title: Campaigns
+---
+
+## Campaign Setup
+
+Launch outbound campaigns with clear goals and fully automated execution. Campaigns let you reach hundreds or thousands of contacts systematically while maintaining natural, personalized conversations.
+
+Every campaign needs an objective (what you're trying to accomplish), contact list (who you're reaching out to), agent (which agent will make the calls), schedule (when and how often to call), and success criteria (how to measure results).
+
+Define specific campaign objectives like appointments set, payments collected, surveys completed, information delivered, or leads qualified.
+
+Import and validate contact lists with phone numbers (required) and first names (recommended), plus any custom data your agent needs. The system automatically deduplicates across imports, validates phone number formats, and identifies invalid numbers.
+
+Configure calling hours that respect time zones automatically, set attempt limits and time spacing between attempts, and define what counts as success.
+
+## Contact Management
+
+Intelligent contact handling ensures you reach the right people at the right time without wasting effort on duplicates, bad numbers, or inappropriate timing.
+
+Import contacts via CSV file upload (bulk import), API integration (real-time sync), manual entry (individual contacts), or CRM sync (automated updates).
+
+**Required Fields**:
+
+* Phone number (accepted column names: phone, phone\_number, tel, mobile)  
+* First name (accepted column names: first\_name, firstname, fname, given\_name)
+
+**Optional Fields**:
+
+* Last name (accepted column names: last\_name, lastname, lname, surname)  
+* Email (accepted column names: email, email\_address, mail)  
+* Company (accepted column names: company, company\_name, organization, org)
+
+The system automatically deduplicates by phone number, validates number formats, determines timezone from area code, and respects local calling hours.
+
+Contacts can be prioritized based on lead score, recency, value, engagement, or custom rules. The system intelligently manages retry attempts with different strategies for no answer, voicemail, busy signals, and callback requests.
+
+Navigate to **Contacts** to view, search, and manage all contacts.
+
+## Success Metrics
+
+Track what matters with built-in analytics for every campaign. Move beyond vanity metrics like "calls made" to understand actual business outcomes.
+
+Monitor real-time connection rates (percentage of calls that reach a person, right party contact rate, voicemail rate, no answer rate), talk time (average conversation duration, distribution of call lengths), and conversation quality (completion rate, hang-up rate and timing, interruption frequency).
+
+Track conversion against your defined goals, calculate cost per successful outcome, and identify top-performing scripts, approaches, or time windows.
+
+Export comprehensive reports including campaign summary statistics, contact-level outcomes, conversation transcripts, timing analysis, and cost breakdown.
+
+Set up alerts for campaigns below target pace, conversion rates dropping, cost per outcome exceeding threshold, or technical issues affecting quality.
+
+## Data Extraction
+
+Every conversation yields structured data without manual data entry or rigid surveys. Your agents naturally collect information through conversational flow, resulting in higher completion rates and better data quality.
+
+During conversations, your agent identifies information relevant to configured fields, captures data in real-time as it's mentioned, validates format and completeness, asks clarifying questions if needed, and writes to your systems immediately.
+
+Define fields to extract including standard fields (name, contact information, company details, preferences, dates) and custom fields (industry-specific data, product interests, budget ranges, timeline expectations).
+
+The system validates data in real-time, checking formats, verifying completeness, and confirming ambiguous responses. If validation fails, the agent asks naturally for clarification.
+
+Your agent handles response variations intelligently. People provide information in different ways, and the agent understands various formats for dates, phone numbers, and yes/no responses.
+
+Data flows to your systems immediately during calls (update CRM in real-time, create records as needed) and after calls (final validation and writing, backup to data warehouse, audit trail creation).
