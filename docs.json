@@ -2,10 +2,20 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
   "name": "AgentVoice",
+  "appearance": {
+    "default": "dark",
+    "strict": false
+  },
   "colors": {
     "primary": "#0f6fff",
     "light": "#0f6fff",
     "dark": "#0f6fff"
+  },
+  "background": {
+    "color": {
+      "light": "#f1f4f9",
+      "dark": "#141a20"
+    }
   },
   "favicon": {
     "light": "/favicon.png",
