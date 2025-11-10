@@ -1,5 +1,5 @@
 ---
-title: Endpoints
+title: "Endpoints"
 ---
 
 ## Agents
@@ -32,12 +32,12 @@ x-organization-id: your-organization-id
 
 **Required Parameters**:
 
-* agentId: The UUID of the agent that will make the call  
-* phoneNumber: Phone number in the format +1XXXXXXXXXX
+- agentId: The UUID of the agent that will make the call
+- phoneNumber: Phone number in the format +1XXXXXXXXXX
 
 **Optional Parameters**:
 
-* notes: Additional context for the call
+- notes: Additional context for the call
 
 **Example Response**:
 
@@ -81,8 +81,8 @@ Retrieves a contact by CRM ID and source.
 
 **Query Parameters**:
 
-* crm\_id: The ID of the contact in the CRM system  
-* crm\_source: The source CRM system (e.g., "salesforce", "hubspot")
+- crm_id: The ID of the contact in the CRM system
+- crm_source: The source CRM system (e.g., "salesforce", "hubspot")
 
 **Create a Contact**
 
@@ -106,7 +106,7 @@ Creates a new contact. The contact will be associated with the authenticated use
 }
 ```
 
-first\_name is required unless crm\_id and crm\_source are provided. All other fields are optional.
+first_name is required unless crm_id and crm_source are provided. All other fields are optional.
 
 **Update a Contact**
 
@@ -148,4 +148,4 @@ Receives contact data from external CRM systems and creates or updates contacts 
 }
 ```
 
-The webhook supports various field naming conventions from different CRM systems, including first\_name/firstName/name, last\_name/lastName, email/emailAddress, phone/phoneNumber, and company/companyName/organization.
+The webhook supports various field naming conventions from different CRM systems, including first_name/firstName/name, last_name/lastName, email/emailAddress, phone/phoneNumber, and company/companyName/organization.
