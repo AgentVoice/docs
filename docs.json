@@ -51,7 +51,8 @@
               "system-features/memory-knowledge",
               "system-features/appointment-setting",
               "system-features/integrations",
-              "system-features/operations"
+              "system-features/operations",
+              "system-features/triggers"
             ]
           },
           {
