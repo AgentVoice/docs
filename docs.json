@@ -91,8 +91,7 @@
               "api-reference/quick-start",
               "api-reference/authentication",
               "api-reference/agents",
-              "api-reference/contacts",
-              "api-reference/webhooks"
+              "api-reference/contacts"
             ]
           }
         ]
