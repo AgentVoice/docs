@@ -1,0 +1,53 @@
+---
+title: "Agents"
+---
+
+## Initiate a Call
+
+```http
+POST /api/agents/call
+```
+
+Initiates a phone call from an agent to a contact.
+
+**Request Headers**:
+
+```http
+Content-Type: application/json
+x-api-key: your-api-key
+x-organization-id: your-organization-id
+```
+
+**Request Body**:
+
+```json
+{
+  "agentId": "uuid-of-the-agent",
+  "phoneNumber": "+1XXXXXXXXXX",
+  "notes": "Optional notes for context in this call"
+}
+```
+
+**Required Parameters**:
+
+- agentId: The UUID of the agent that will make the call
+- phoneNumber: Phone number in the format +1XXXXXXXXXX
+
+**Optional Parameters**:
+
+- notes: Additional context for the call
+
+**Example Response**:
+
+```json
+{
+  "message": "Call initiated successfully",
+  "callId": "b7f2d8e1-6c3a-4d5b-9e8f-1a2b3c4d5e6f",
+  "agentName": "Sales Assistant",
+  "contactName": "John Doe",
+  "phoneNumber": "+15551234567"
+}
+```
+
+The contact must have a valid phone number in their profile. The call is initiated immediately upon successful request processing.
+

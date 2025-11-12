@@ -1,0 +1,381 @@
+---
+title: "Contacts"
+---
+
+## List All Contacts
+
+```http
+GET /api/contacts
+```
+
+Retrieves all contacts for your organization.
+
+## Get a Specific Contact
+
+```http
+GET /api/contacts/:id
+```
+
+Retrieves a specific contact by ID.
+
+## Get a Contact by CRM ID
+
+```http
+GET /api/contacts/crm/lookup
+```
+
+Retrieves a contact by CRM ID and source.
+
+**Query Parameters**:
+
+- crm_id: The ID of the contact in the CRM system
+- crm_source: The source CRM system (e.g., "salesforce", "hubspot")
+
+## Create a Contact
+
+```http
+POST /api/contacts
+```
+
+Creates a new contact. The contact will be associated with the authenticated user.
+
+**Request Body**:
+
+```json
+{
+  "first_name": "Jane",
+  "last_name": "Smith",
+  "email": "jane@example.com",
+  "phone": "+1987654321",
+  "company": "New Corp",
+  "crm_id": "CRM456",
+  "crm_source": "hubspot",
+  "backup_contact_name": "John Smith",
+  "backup_contact_phone": "+1987654322",
+  "contact_tags": ["prospect", "vip", "enterprise"],
+  "contact_variables": {
+    "lead_source": "website",
+    "priority": "high",
+    "deal_size": "50000"
+  },
+  "country_code": "US",
+  "country": "United States"
+}
+```
+
+**Required Parameters**:
+* first_name is required unless crm_id and crm_source are provided. All other fields are optional.
+
+**Optional Parameters**:
+* last\_name: Last name (string, max 100 characters)
+* email: Email address (string, max 255 characters)
+* phone: Phone number (string, max 20 characters)
+* company: Company name (string, max 255 characters)
+* crm\_id: External CRM identifier (requires crm\_source)
+* crm\_source: CRM system name (requires crm\_id)
+* backup\_contact\_name: Alternative contact person name (string, max 100 characters)
+* backup\_contact\_phone: Alternative contact phone number (string, max 20 characters)
+* contact\_tags: Array of string tags for categorization (defaults to empty array)
+* contact\_variables: Object with string key-value pairs for custom metadata (defaults to empty object)
+* country\_code: Two-letter ISO country code (string, exactly 2 characters, e.g., "US", "CA", "GB")
+* country: Full country name (string, max 100 characters)
+
+**Extended Fields Use Cases**:
+* **backup\_contact\_name / backup\_contact\_phone**: Store secondary contact information for the organization
+* **contact\_tags**: Categorize contacts for segmentation (e.g., ["prospect", "vip", "enterprise", "hot-lead"])
+* **contact\_variables**: Store custom metadata specific to your business needs (e.g., lead scores, deal sizes, custom fields)
+* **country\_code / country**: Track geographical location for reporting and segmentation
+
+**Validation Rules**:
+* contact\_tags must be an array where all elements are strings (no numbers, objects, or other types)
+* contact\_variables must be a flat object where all values are strings (no nested objects, arrays, or non-string values)
+* country\_code must be exactly 2 characters when provided (ISO 3166-1 alpha-2 standard)
+
+**Example Response**:
+
+```json
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "user_id": "123e4567-e89b-12d3-a456-426614174001",
+  "organization_id": "123e4567-e89b-12d3-a456-426614174002",
+  "first_name": "Jane",
+  "last_name": "Smith",
+  "email": "jane@example.com",
+  "phone": "+1987654321",
+  "company": "New Corp",
+  "crm_id": "CRM456",
+  "crm_source": "hubspot",
+  "backup_contact_name": "John Smith",
+  "backup_contact_phone": "+1987654322",
+  "contact_tags": ["prospect", "vip", "enterprise"],
+  "contact_variables": {
+    "lead_source": "website",
+    "priority": "high",
+    "deal_size": "50000"
+  },
+  "country_code": "US",
+  "country": "United States",
+  "created_at": "2024-01-15T10:30:00.000Z",
+  "updated_at": "2024-01-15T10:30:00.000Z"
+}
+```
+
+## Update a Contact
+
+```http
+PATCH /api/contacts/:id
+```
+
+Updates specific fields of a contact. Only include the fields you want to update.
+
+**Updatable Fields**:
+
+You can update any of these fields by providing the new value:
+
+* **first_name**: First name (string)
+* **last_name**: Last name (string)
+* **email**: Email address (string)
+* **phone**: Phone number (string)
+* **company**: Company name (string)
+* **crm_id**: CRM identifier (requires crm_source if updating)
+* **crm_source**: CRM system name (requires crm_id if updating)
+* **backup_contact_name**: Backup contact name (string)
+* **backup_contact_phone**: Backup contact phone (string)
+* **country_code**: Two-letter ISO country code (string, exactly 2 characters)
+* **country**: Full country name (string)
+* **contact_tags**: Array of tags (requires update operators - see below)
+* **contact_variables**: Object of variables (requires update operators - see below)
+
+**Simple Field Updates**:
+
+For most fields, provide the new value directly:
+
+```json
+{
+  "first_name": "Jane",
+  "last_name": "Doe",
+  "email": "jane.doe@example.com",
+  "phone": "+1234567890",
+  "company": "New Company Inc",
+  "backup_contact_name": "John Doe",
+  "backup_contact_phone": "+1234567899",
+  "country_code": "CA",
+  "country": "Canada"
+}
+```
+
+**Note**: When updating `crm_id` or `crm_source`, both must be provided together. You cannot update one without the other.
+
+**Advanced Updates for Tags & Variables**:
+
+For contact\_tags and contact\_variables, you must use update operators:
+
+**Update Tags Examples**:
+
+Add tags (prevents duplicates):
+```json
+{
+  "contact_tags": {
+    "$push": ["customer", "premium"]
+  }
+}
+```
+
+Remove tags:
+```json
+{
+  "contact_tags": {
+    "$pull": ["prospect", "inactive"]
+  }
+}
+```
+
+Replace all tags:
+```json
+{
+  "contact_tags": {
+    "$set": ["active", "enterprise"]
+  }
+}
+```
+
+Combine operations:
+```json
+{
+  "contact_tags": {
+    "$push": ["vip"],
+    "$pull": ["prospect"]
+  }
+}
+```
+
+**Update Variables Examples**:
+
+Set or update specific variables:
+```json
+{
+  "contact_variables": {
+    "$set": {
+      "priority": "urgent",
+      "last_contact_date": "2024-01-15"
+    }
+  }
+}
+```
+
+Remove variables:
+```json
+{
+  "contact_variables": {
+    "$unset": ["old_field", "temp_data"]
+  }
+}
+```
+
+Merge variables (same as $set):
+```json
+{
+  "contact_variables": {
+    "$merge": {
+      "status": "warm",
+      "updated_by": "sales_team"
+    }
+  }
+}
+```
+
+Combine operations:
+```json
+{
+  "contact_variables": {
+    "$set": {
+      "deal_stage": "negotiation"
+    },
+    "$unset": ["temp_notes"],
+    "$merge": {
+      "last_activity": "2024-01-15"
+    }
+  }
+}
+```
+
+**Update Operators Reference**:
+
+For **contact\_tags**:
+* **$push**: Add tags to the array - automatically prevents duplicates
+* **$pull**: Remove specific tags from the array
+* **$set**: Replace the entire tags array with a new one
+
+For **contact\_variables**:
+* **$set**: Set or update specific variable key-value pairs
+* **$unset**: Remove specific variables by key (provide array of keys to remove)
+* **\$merge**: Merge new variables into existing ones (same as $set, provided for semantic clarity)
+
+**Mixed Field Update Example**:
+
+You can update simple fields and use operators in the same request:
+
+```json
+{
+  "first_name": "Jane",
+  "backup_contact_name": "Updated Name",
+  "country": "Canada",
+  "contact_tags": {
+    "$push": ["hot-lead"]
+  },
+  "contact_variables": {
+    "$set": {
+      "priority": "urgent",
+      "last_contact_date": "2024-01-15"
+    }
+  }
+}
+```
+
+**Example Response**:
+
+```json
+{
+  "id": "123e4567-e89b-12d3-a456-426614174000",
+  "user_id": "123e4567-e89b-12d3-a456-426614174001",
+  "organization_id": "123e4567-e89b-12d3-a456-426614174002",
+  "first_name": "Jane",
+  "last_name": "Smith",
+  "email": "jane@example.com",
+  "phone": "+1987654321",
+  "company": "New Corp",
+  "backup_contact_name": "Updated Name",
+  "backup_contact_phone": "+1987654322",
+  "contact_tags": ["prospect", "vip", "enterprise", "hot-lead"],
+  "contact_variables": {
+    "lead_source": "website",
+    "deal_size": "50000",
+    "priority": "urgent",
+    "last_contact_date": "2024-01-15"
+  },
+  "country_code": "US",
+  "country": "Canada",
+  "created_at": "2024-01-15T10:30:00.000Z",
+  "updated_at": "2024-01-15T14:22:00.000Z"
+}
+```
+
+**Operation Processing Order**:
+When multiple operators are combined, they process in this order:
+1. `$set` - Sets values first
+2. `$unset` - Removes values
+3. `$merge` - Merges additional values
+4. `$push` - Adds to arrays
+5. `$pull` - Removes from arrays
+
+**Important Rules**:
+* contact\_tags and contact\_variables updates **must** use operators - simple value replacement is not allowed
+* All operator values must maintain type constraints (strings only)
+* $push automatically prevents duplicate tags - no need to check if a tag already exists
+* contact\_variables must remain a flat object (no nested structures allowed)
+
+## Delete a Contact
+
+```http
+DELETE /api/contacts/:id
+```
+
+Permanently deletes a contact and all associated data.
+
+**Common Error Responses**:
+
+When creating or updating contacts, you may receive these validation errors:
+
+* `400 Bad Request` - `"contact_tags must be an array of strings"`: Tags array contains non-string values
+* `400 Bad Request` - `"contact_variables must be an object with string values"`: Variables object contains non-string values or nested structures  
+* `400 Bad Request` - `"country_code must be a 2-letter ISO code"`: Country code is not exactly 2 characters
+* `400 Bad Request` - `"contact_tags must use update operators: $push, $pull, or $set"`: Attempting to update tags without using operators
+* `400 Bad Request` - `"contact_variables must use update operators: $set, $unset, or $merge"`: Attempting to update variables without using operators
+* `404 Not Found` - Contact with specified ID does not exist or does not belong to your organization
+* `409 Conflict` - A contact with this CRM ID and source already exists for your organization
+
+## CRM Webhook
+
+```http
+POST /api/webhook/crm
+```
+
+Receives contact data from external CRM systems and creates or updates contacts accordingly.
+
+**Request Body**:
+
+```json
+{
+  "source": "salesforce",
+  "data": {
+    "crm_id": "CRM123",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@example.com",
+    "phone": "+1234567890",
+    "company": "Example Corp"
+  }
+}
+```
+
+The webhook supports various field naming conventions from different CRM systems, including first_name/firstName/name, last_name/lastName, email/emailAddress, phone/phoneNumber, and company/companyName/organization.
