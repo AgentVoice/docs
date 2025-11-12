@@ -5,7 +5,7 @@ title: "Contacts"
 ## List All Contacts
 
 ```http
-GET /api/contacts
+GET https://api.agentvoice.com/api/contacts
 ```
 
 Retrieves all contacts for your organization.
@@ -13,7 +13,7 @@ Retrieves all contacts for your organization.
 ## Get a Specific Contact
 
 ```http
-GET /api/contacts/:id
+GET https://api.agentvoice.com/api/contacts/:id
 ```
 
 Retrieves a specific contact by ID.
@@ -21,7 +21,7 @@ Retrieves a specific contact by ID.
 ## Get a Contact by CRM ID
 
 ```http
-GET /api/contacts/crm/lookup
+GET https://api.agentvoice.com/api/contacts/crm/lookup
 ```
 
 Retrieves a contact by CRM ID and source.
@@ -34,7 +34,7 @@ Retrieves a contact by CRM ID and source.
 ## Create a Contact
 
 ```http
-POST /api/contacts
+POST https://api.agentvoice.com/api/contacts
 ```
 
 Creates a new contact. The contact will be associated with the authenticated user.
@@ -123,7 +123,7 @@ Creates a new contact. The contact will be associated with the authenticated use
 ## Update a Contact
 
 ```http
-PATCH /api/contacts/:id
+PATCH https://api.agentvoice.com/api/contacts/:id
 ```
 
 Updates specific fields of a contact. Only include the fields you want to update.
@@ -337,7 +337,7 @@ When multiple operators are combined, they process in this order:
 ## Delete a Contact
 
 ```http
-DELETE /api/contacts/:id
+DELETE https://api.agentvoice.com/api/contacts/:id
 ```
 
 Permanently deletes a contact and all associated data.
@@ -357,7 +357,7 @@ When creating or updating contacts, you may receive these validation errors:
 ## CRM Webhook
 
 ```http
-POST /api/webhook/crm
+POST https://api.agentvoice.com/api/webhook/crm
 ```
 
 Receives contact data from external CRM systems and creates or updates contacts accordingly.
