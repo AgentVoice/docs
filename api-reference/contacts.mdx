@@ -1,61 +1,8 @@
 ---
-title: "Endpoints"
+title: "Contacts"
 ---
 
-## Agents
-
-**Initiate a Call**
-
-```http
-POST /api/agents/call
-```
-
-Initiates a phone call from an agent to a contact.
-
-**Request Headers**:
-
-```http
-Content-Type: application/json
-x-api-key: your-api-key
-x-organization-id: your-organization-id
-```
-
-**Request Body**:
-
-```json
-{
-  "agentId": "uuid-of-the-agent",
-  "phoneNumber": "+1XXXXXXXXXX",
-  "notes": "Optional notes for context in this call"
-}
-```
-
-**Required Parameters**:
-
-- agentId: The UUID of the agent that will make the call
-- phoneNumber: Phone number in the format +1XXXXXXXXXX
-
-**Optional Parameters**:
-
-- notes: Additional context for the call
-
-**Example Response**:
-
-```json
-{
-  "message": "Call initiated successfully",
-  "callId": "b7f2d8e1-6c3a-4d5b-9e8f-1a2b3c4d5e6f",
-  "agentName": "Sales Assistant",
-  "contactName": "John Doe",
-  "phoneNumber": "+15551234567"
-}
-```
-
-The contact must have a valid phone number in their profile. The call is initiated immediately upon successful request processing.
-
-## Contacts
-
-**List All Contacts**
+## List All Contacts
 
 ```http
 GET /api/contacts
@@ -63,7 +10,7 @@ GET /api/contacts
 
 Retrieves all contacts for your organization.
 
-**Get a Specific Contact**
+## Get a Specific Contact
 
 ```http
 GET /api/contacts/:id
@@ -71,7 +18,7 @@ GET /api/contacts/:id
 
 Retrieves a specific contact by ID.
 
-**Get a Contact by CRM ID**
+## Get a Contact by CRM ID
 
 ```http
 GET /api/contacts/crm/lookup
@@ -84,7 +31,7 @@ Retrieves a contact by CRM ID and source.
 - crm_id: The ID of the contact in the CRM system
 - crm_source: The source CRM system (e.g., "salesforce", "hubspot")
 
-**Create a Contact**
+## Create a Contact
 
 ```http
 POST /api/contacts
@@ -173,7 +120,7 @@ Creates a new contact. The contact will be associated with the authenticated use
 }
 ```
 
-**Update a Contact**
+## Update a Contact
 
 ```http
 PATCH /api/contacts/:id
@@ -387,7 +334,7 @@ When multiple operators are combined, they process in this order:
 * $push automatically prevents duplicate tags - no need to check if a tag already exists
 * contact\_variables must remain a flat object (no nested structures allowed)
 
-**Delete a Contact**
+## Delete a Contact
 
 ```http
 DELETE /api/contacts/:id
@@ -407,7 +354,7 @@ When creating or updating contacts, you may receive these validation errors:
 * `404 Not Found` - Contact with specified ID does not exist or does not belong to your organization
 * `409 Conflict` - A contact with this CRM ID and source already exists for your organization
 
-**CRM Webhook**
+## CRM Webhook
 
 ```http
 POST /api/webhook/crm
